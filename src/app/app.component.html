@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">My journey planner</mat-toolbar>
+
+<div class="container">
+<div  class="input-area">
+  <h2>I want to go from </h2> 
+  <app-place-autocomplete (placeChanged)="fromValue = $event"></app-place-autocomplete>
+   <h2>to</h2> 
+   <app-place-autocomplete (placeChanged)="toValue = $event"></app-place-autocomplete>
+</div>
+
+<div class="display-area">
+  <div>
+    <app-place-details [data]="fromValue"></app-place-details>
+    <app-place-details [data]="toValue"></app-place-details>
+  </div>
+
+  <app-map-display [from]="fromValue" [to]="toValue"></app-map-display>
+</div>
+
+  <!-- <app-place-autocomplete (placeChanged)="fromValue = $event"></app-place-autocomplete>
+
+  <div *ngIf="fromValue">
+    <h2>{{fromValue.name}}</h2>
+    <img [src]="fromValue.imageUrl">
+  </div> -->
+
+</div>
